@@ -5,11 +5,16 @@
   <meta name="description" content="一直画/写一个推荐书单来供大家参考，无奈找不到一本合适的形式。有一天，想到了之前的技术树，便开始落地了。"/>
   <link href="app/styles/layout.css" rel="stylesheet">
   <link href="app/styles/tooltipster.css" rel="stylesheet">
+  <link href="app/styles/mifa.min.css" rel="stylesheet">
+  <script type="text/javascript" src="app/lib/FileSaver.min.js"></script>
+  <script type="text/javascript" data-main="app/scripts/main.js" src="app/lib/require.js"></script>
 </head>
 <body>
 <div id="tree">
   <h1>Developer进阶书单</h1>
-  <h3>Github: <a href="https://github.com/phodal/booktree">https://github.com/phodal/booktree</a> Weibo: <a href="http://weibo.com/phodal">@phodal</a></h3>
+  <h3>Github: <a href="https://github.com/phodal/booktree">https://github.com/phodal/booktree</a>
+    <br>
+    Weibo: <a href="http://weibo.com/phodal">@phodal</a></h3>
   <p>一直画/写一个推荐书单来供大家参考，无奈找不到一本合适的形式。有一天，想到了之前的技术树 <a href="https://github.com/phodal/sherlock">https://github.com/phodal/sherlock</a>，便开始落地了。</p>
   <p>我深知自己的知识有限，所以写下本文以便和大家切磋交流。欢迎通过 GitHub 的Issues或者直接Pull Requests方式来分享你的经验。期待你的反馈。</p>
 
@@ -23,21 +28,36 @@
   <p>So，通过研究现有技术的一些发展，我们可以预料到一些新的技术的出现。尽管新的技术并没有解决一些根本性问题，如业务，但是它是为了业务而简化现有的技术。</p>
   <h2>如何写好代码——重构与设计模式</h2>
   <svg id="code" width=960 height=480></svg>
+  <button id="generate-code">导出 SVG</button>
 
   <h2>如何写前端框架——前端读书路线图</h2>
   <svg id="frontend" width=960 height=480></svg>
+  <p>本图已被《<a href="https://www.amazon.cn/dp/B07574N7Y2">JavaScript 框架设计：第 2 版</a>》收录。</p>
+  <button id="generate-frontend">导出 SVG</button>
 
   <h2>机器学习读书路线</h2>
   <svg id="ml" width=1200 height=480></svg>
+  <button id="generate-ml">导出 SVG</button>
 
   <h2>持续交付读书路线图</h2>
   <svg id="cd" width=960 height=480></svg>
+  <button id="generate-cd">导出 SVG</button>
 
   <h2>领域特定语言读书路线图</h2>
   <svg id="lang" width=960 height=480></svg>
+  <button id="generate-lang">导出 SVG</button>
+  <p>相关文章：</p>
+  <ul>
+    <li><a href="https://www.phodal.com/blog/how-to-design-dsl-in-bau-project/">如何在业务代码中提升：创建领域特定语言</a></li>
+  </ul>
 
   <h2>架构与模式读书路线图</h2>
   <svg id="arch" width=1200 height=480></svg>
+  <button id="generate-arch">导出 SVG</button>
+  <p>相关文章：</p>
+  <ul>
+    <li><a href="https://www.phodal.com/blog/architecture-design-series-design-a-mobile-application-architecture/">【架构拾集】：移动应用架构设计</a></li>
+  </ul>
 
   <h2>代码大全</h2>
   <p>
@@ -46,5 +66,4 @@
   <p>© 2015 <a href="http://www.phodal.com">Phodal Huang</a>. See <code>LICENSE.txt</code> in this directory.</p>
 </div>
 </body>
-<script type="text/javascript" data-main="app/scripts/main.js" src="app/lib/require.js"></script>
 </html>

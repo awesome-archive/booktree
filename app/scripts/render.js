@@ -26,6 +26,35 @@ define(['d3', 'lib/knockout', 'scripts/Utils', 'dagre-d3', 'jquery', 'lettuce', 
         });
       }
 
+      function writeDownloadLink(id){
+        try {
+          var isFileSaverSupported = !!new Blob();
+        } catch (e) {
+          alert("blob not supported");
+        }
+
+        var svg = document.getElementById(id);
+
+        var serializer = new XMLSerializer();
+        var source = serializer.serializeToString(svg);
+
+        if(!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)){
+          source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+        }
+        if(!source.match(/^<svg[^>]+"http\:\/\/www\.w3\.org\/1999\/xlink"/)){
+          source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
+        }
+
+        source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+
+        var blob = new Blob([source], {type: "image/svg+xml"});
+        saveAs(blob,  id + ".svg");
+      }
+
+      d3.select("#generate-" + elementId.substr(1)).on("click", function() {
+        writeDownloadLink(elementId.substr(1));
+      });
+
       var lettuce = new Lettuce();
       var g = new dagreD3.graphlib.Graph().setGraph({});
       setBookNode();
